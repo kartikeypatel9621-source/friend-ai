@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FRIENDLY — Personal AI Companion</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+
+            <div>
+                <h2>FRIENDLY</h2>
+                <span>Personal AI Companion</span>
+            </div>
+        </div>
+
+        <div class="header-right">
+
+            <div class="local-status">
+                <span class="status-dot"></span>
+                Local-first
+            </div>
+
+            <button id="themeBtn">☼</button>
+
+            <div class="profile">A</div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN APP ================= -->
+
+    <main class="app">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <button class="new-chat" id="newChatBtn">
+                ＋ New Conversation
+            </button>
+
+            <nav>
+
+                <button class="nav active" data-page="home">
+                    ⌂ Home
+                </button>
+
+                <button class="nav" data-page="chat">
+                    ◉ AI Companion
+                </button>
+
+                <button class="nav" data-page="today">
+                    ✓ Today
+                </button>
+
+                <button class="nav" data-page="memory">
+                    ◈ Memory
+                </button>
+
+                <button class="nav" data-page="goals">
+                    ◇ Goals
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="privacy-box">
+
+                    <div class="privacy-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <strong>Your data stays yours</strong>
+
+                        <p>
+                            Designed for local AI.
+                            No cloud required.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="model-selector">
+
+                    <label>AI Model</label>
+
+                    <select id="modelSelect">
+
+                        <option value="demo">
+                            Demo Mode
+                        </option>
+
+                        <option value="llama3.2">
+                            Llama 3.2
+                        </option>
+
+                        <option value="qwen2.5">
+                            Qwen 2.5
+                        </option>
+
+                        <option value="mistral">
+                            Mistral
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+
+            <!-- ================= HOME ================= -->
+
+            <section class="page active" id="home">
+
+                <div class="hero">
+
+                    <div class="hero-text">
+
+                        <div class="eyebrow">
+                            <span></span>
+                            BUILT FOR A FRIEND
+                        </div>
+
+                        <h1>
+                            Good morning,
+                            <br>
+                            <span>Alex.</span>
+                        </h1>
+
+                        <p>
+                            A small AI that knows what matters to you —
+                            without sending your life to a server you
+                            don't control.
+                        </p>
+
+
+                        <div class="hero-buttons">
+
+                            <button
+                                class="primary"
+                                data-open-chat
+                            >
+                                Talk to your companion →
+                            </button>
+
+                            <button
+                                class="secondary"
+                                data-page-target="today"
+                            >
+                                See today's plan
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="ai-orb">
+
+                        <div class="ring ring1"></div>
+
+                        <div class="ring ring2"></div>
+
+                        <div class="orb-center">
+                            ✦
+                        </div>
+
+                        <span>
+                            I'm here.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TODAY CARDS -->
+
+                <div class="section-title">
+
+                    <div>
+
+                        <small>PERSONALIZED</small>
+
+                        <h2>
+                            Today, for you
+                        </h2>
+
+                    </div>
+
+                    <button
+                        class="text-button"
+                        data-page-target="today"
+                    >
+                        View all →
+                    </button>
+
+                </div>
+
+
+                <div class="cards">
+
+                    <article class="card">
+
+                        <div class="card-header">
+
+                            <div class="card-icon">
+                                ✓
+                            </div>
+
+                            <span>
+                                FOCUS
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Finish your physics revision
+                        </h3>
+
+                        <p>
+                            You have two topics left
+                            from the plan you made yesterday.
+                        </p>
+
+                        <div class="progress">
+                            <span style="width:68%"></span>
+                        </div>
+
+                        <small>
+                            68% complete · ~45 min
+                        </small>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="card-header">
+
+                            <div class="card-icon orange">
+                                ☀
+                            </div>
+
+                            <span>
+                                WELLBEING
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Take a real break
+                        </h3>
+
+                        <p>
+                            You've been focused for a while.
+                            A short walk could help.
+                        </p>
+
+                        <button
+                            class="card-link"
+                            id="breakBtn"
+                        >
+                            Start break →
+                        </button>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="card-header">
+
+                            <div class="card-icon blue">
+                                ◈
+                            </div>
+
+                            <span>
+                                IDEA
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Try local AI today
+                        </h3>
+
+                        <p>
+                            Ask me to summarize your notes
+                            without uploading them anywhere.
+                        </p>
+
+                        <button
+                            class="card-link"
+                            data-open-chat
+                        >
+                            Ask me →
+                        </button>
+
+                    </article>
+
+                </div>
+
+
+                <!-- LOWER SECTION -->
+
+                <div class="lower-grid">
+
+                    <div class="quote-card">
+
+                        <span class="quote">
+                            “
+                        </span>
+
+                        <p>
+                            You don't need a bigger life.
+                            You need a life that feels more like yours.
+                        </p>
+
+                        <small>
+                            — your companion
+                        </small>
+
+                    </div>
+
+
+                    <div class="open-ai-card">
+
+                        <div class="open-ai-icon">
+                            ◎
+                        </div>
+
+                        <div>
+
+                            <small>
+                                WHY OPEN AI?
+                            </small>
+
+                            <h3>
+                                Your friend isn't a dataset.
+                            </h3>
+
+                            <p>
+                                Open-weight models can run locally,
+                                letting users keep personal memories
+                                under their control.
+                            </p>
+
+                            <button
+                                class="text-button"
+                                data-page-target="memory"
+                            >
+                                Explore memory →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= CHAT ================= -->
+
+            <section class="page" id="chat">
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <small>
+                            YOUR COMPANION
+                        </small>
+
+                        <h2>
+                            Let's talk.
+                        </h2>
+
+                    </div>
+
+                    <div class="connection">
+
+                        <span class="status-dot"></span>
+
+                        <span id="connectionText">
+                            Demo AI active
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chat-layout">
+
+                    <div class="chat-panel">
+
+                        <div
+                            class="messages"
+                            id="messages"
+                        >
+
+                            <div class="message assistant">
+
+                                <div class="avatar">
+                                    ✦
+                                </div>
+
+                                <div class="bubble">
+
+                                    <p>
+                                        Hey Alex 👋
+                                        <br><br>
+
+                                        I'm your private AI companion.
+                                        What's on your mind?
+                                    </p>
+
+                                    <small>
+                                        just now
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="suggestions">
+
+                            <button data-prompt="Help me plan my study session">
+                                Plan my study
+                            </button>
+
+                            <button data-prompt="I feel overwhelmed today">
+                                I'm overwhelmed
+                            </button>
+
+                            <button data-prompt="Give me a productivity idea">
+                                Give me an idea
+                            </button>
+
+                        </div>
+
+
+                        <form
+                            class="chat-input"
+                            id="chatForm"
+                        >
+
+                            <textarea
+                                id="chatInput"
+                                placeholder="Tell me what's going on..."
+                                rows="1"
+                            ></textarea>
+
+                            <button type="submit">
+                                ↑
+                            </button>
+
+                        </form>
+
+
+                        <div class="input-note">
+
+                            Private by design ·
+                            <span id="modelLabel">
+                                Demo mode
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTEXT -->
+
+                    <aside class="context">
+
+                        <small>
+                            CONTEXT
+                        </small>
+
+                        <h3>
+                            What I remember
+                        </h3>
+
+
+                        <div class="context-item">
+
+                            <span>◉</span>
+
+                            <div>
+
+                                <strong>
+                                    Learning
+                                </strong>
+
+                                <p>
+                                    Preparing for physics exam
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="context-item">
+
+                            <span>⌁</span>
+
+                            <div>
+
+                                <strong>
+                                    Preference
+                                </strong>
+
+                                <p>
+                                    Likes concise explanations
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="context-item">
+
+                            <span>♡</span>
+
+                            <div>
+
+                                <strong>
+                                    Goal
+                                </strong>
+
+                                <p>
+                                    Build something meaningful
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="outline"
+                            data-page-target="memory"
+                        >
+                            Manage memory
+                        </button>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= TODAY ================= -->
+
+            <section class="page" id="today">
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <small>
+                            YOUR DAY
+                        </small>
+
+                        <h2>
+                            Today, without the noise.
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="day-score">
+
+                    <div class="score">
+                        <strong>72</strong>
+                        <span>/100</span>
+                    </div>
+
+                    <div>
+
+                        <small>
+                            DAY BALANCE
+                        </small>
+
+                        <h3>
+                            You're doing well.
+                        </h3>
+
+                        <p>
+                            One focused block and one proper break
+                            should keep your energy steady.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <div class="timeline-item done">
+
+                        <div class="time">
+                            09:00
+                        </div>
+
+                        <div class="timeline-dot"></div>
+
+                        <div>
+                            <small>DONE</small>
+
+                            <h3>
+                                Morning review
+                            </h3>
+
+                            <p>
+                                Physics formulas · 30 min
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item current">
+
+                        <div class="time">
+                            11:30
+                        </div>
+
+                        <div class="timeline-dot"></div>
+
+                        <div>
+                            <small>NOW</small>
+
+                            <h3>
+                                Deep work
+                            </h3>
+
+                            <p>
+                                Finish remaining revision questions · 45 min
+                            </p>
+
+                            <button
+                                class="small-button"
+                                data-open-chat
+                            >
+                                Ask for help
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="time">
+                            13:00
+                        </div>
+
+                        <div class="timeline-dot"></div>
+
+                        <div>
+                            <small>NEXT</small>
+
+                            <h3>
+                                Lunch + walk
+                            </h3>
+
+                            <p>
+                                Don't study through this one.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="time">
+                            17:30
+                        </div>
+
+                        <div class="timeline-dot"></div>
+
+                        <div>
+                            <small>LATER</small>
+
+                            <h3>
+                                Build time
+                            </h3>
+
+                            <p>
+                                60 minutes on your personal project.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= MEMORY ================= -->
+
+            <section class="page" id="memory">
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <small>
+                            PRIVATE MEMORY
+                        </small>
+
+                        <h2>
+                            What I know about you.
+                        </h2>
+
+                    </div>
+
+                    <button
+                        class="primary small"
+                        id="addMemory"
+                    >
+                        ＋ Add memory
+                    </button>
+
+                </div>
+
+
+                <div class="memory-banner">
+
+                    <div class="memory-symbol">
+                        ◎
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Stored locally
+                        </h3>
+
+                        <p>
+                            Your companion's memories are designed
+                            to stay on your device.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="memory-list"
+                    id="memoryList"
+                ></div>
+
+            </section>
+
+
+            <!-- ================= GOALS ================= -->
+
+            <section class="page" id="goals">
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <small>
+                            KEEP MOVING
+                        </small>
+
+                        <h2>
+                            Goals that matter.
+                        </h2>
+
+                    </div>
+
+                    <button
+                        class="primary small"
+                        id="goalButton"
+                    >
+                        ＋ New goal
+                    </button>
+
+                </div>
+
+
+                <div class="goals">
+
+                    <div class="goal-card">
+
+                        <span>
+                            ⚡ THIS WEEK
+                        </span>
+
+                        <h3>
+                            Finish physics revision
+                        </h3>
+
+                        <div class="goal-progress">
+                            <span style="width:72%"></span>
+                        </div>
+
+                        <p>
+                            72% · 3 of 4 milestones
+                        </p>
+
+                    </div>
+
+
+                    <div class="goal-card">
+
+                        <span>
+                            ◈ THIS MONTH
+                        </span>
+
+                        <h3>
+                            Ship the AI companion
+                        </h3>
+
+                        <div class="goal-progress">
+                            <span style="width:46%"></span>
+                        </div>
+
+                        <p>
+                            46% · frontend prototype done
+                        </p>
+
+                    </div>
+
+
+                    <div class="goal-card">
+
+                        <span>
+                            ♡ ONGOING
+                        </span>
+
+                        <h3>
+                            Protect my energy
+                        </h3>
+
+                        <div class="goal-progress">
+                            <span style="width:58%"></span>
+                        </div>
+
+                        <p>
+                            58% · 4 healthy days this week
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= MEMORY MODAL ================= -->
+
+    <div
+        class="modal"
+        id="memoryModal"
+    >
+
+        <div class="modal-box">
+
+            <button
+                class="close"
+                id="closeModal"
+            >
+                ×
+            </button>
+
+            <small>
+                NEW MEMORY
+            </small>
+
+            <h2>
+                Remember something useful.
+            </h2>
+
+            <p>
+                This demo stores memories in your browser.
+            </p>
+
+            <textarea
+                id="memoryInput"
+                placeholder="Example: I focus better with 45-minute study blocks."
+            ></textarea>
+
+            <button
+                class="primary"
+                id="saveMemory"
+            >
+                Save memory →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
